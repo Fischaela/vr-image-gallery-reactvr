@@ -96,7 +96,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
               {translate: [4, 4, 4]},
             ],
           }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+          source={{mesh:asset('torus_pointer.obj'), mtl:asset('torus_pointer.mtl'), lit: true}} />
       </View>
     );
   }
