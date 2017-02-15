@@ -13,7 +13,6 @@ import Button from './button.js';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
   constructor(props) {
-    console.log('!!');
     super(props);
     this.state = {
       rotation: 130,
@@ -75,7 +74,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
         <Mesh style={{
             transform: [
               {translate: [-25, 0, this.state.zoom]},
-              {scale: 0.05 },
+              {scale: 0.05},
               {rotateY: this.state.rotation},
               {rotateX: 20},
               {rotateZ: -10}
@@ -90,8 +89,14 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
               {rotateY: this.state.rotation / 3}
             ],
           }}
-          source={{mesh:asset('moon.obj'), mtl:asset('moon.mtl'), lit: true}}
-        />
+          source={{mesh:asset('moon.obj'), mtl:asset('moon.mtl'), lit: true}} />
+        <Mesh
+          style={{
+            transform: [
+              {translate: [4, 4, 4]},
+            ],
+          }}
+          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
       </View>
     );
   }
