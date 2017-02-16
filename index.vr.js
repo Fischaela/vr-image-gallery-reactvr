@@ -9,7 +9,6 @@ import {
   Mesh,
   AmbientLight
 } from 'react-vr';
-import Button from './button.js';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
   constructor(props) {
@@ -63,40 +62,39 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={ {uri: this.spaceSkymap} }/>
-        <AmbientLight intensity={ 2.6 }  />
-        <View style={ this.styles.menu }>
-          <Button text='+'
-            callback={() => this.setState((prevState) => ({ zoom: prevState.zoom + 10 }) ) } />
-          <Button text='-'
-            callback={() => this.setState((prevState) => ({ zoom: prevState.zoom - 10 }) ) } />
-        </View>
-        <Mesh style={{
-            transform: [
-              {translate: [-25, 0, this.state.zoom]},
-              {scale: 0.05},
-              {rotateY: this.state.rotation},
-              {rotateX: 20},
-              {rotateZ: -10}
-            ],
-          }}
-          source={{mesh:asset('earth.obj'), mtl:asset('earth.mtl'), lit: true}} />
+        <AmbientLight intensity={ 5 }/>
         <Mesh
           style={{
             transform: [
-              {translate: [10, 10, this.state.zoom - 30]},
-              {scale: 0.05},
-              {rotateY: this.state.rotation / 3}
+              {translate: [0, 0.2, -1]},
+              {scale: [1, 0.4, 0.001]},
             ],
           }}
-          source={{mesh:asset('moon.obj'), mtl:asset('moon.mtl'), lit: true}} />
+          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
         <Mesh
           style={{
             transform: [
-              {translate: [4, 4, 4]},
+              {translate: [-1, 0.2, 0]},
+              {scale: [0.001, 0.4, 1]},
             ],
           }}
-          source={{mesh:asset('torus_pointer.obj'), mtl:asset('torus_pointer.mtl'), lit: true}} />
+          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+        <Mesh
+          style={{
+            transform: [
+              {translate: [1, 0.2, 0]},
+              {scale: [0.001, 0.4, 1]},
+            ],
+          }}
+          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+        <Mesh
+          style={{
+            transform: [
+              {translate: [0, 0.2, 1]},
+              {scale: [1, 0.4, 0.001]},
+            ],
+          }}
+          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
       </View>
     );
   }

@@ -8,6 +8,8 @@ import {VRInstance} from 'react-vr-web';
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'GEILDANKE_REACTVR_GALLERY', parent, {
     // Add custom options here
+    // Show a gaze cursor.
+    cursorEnabled: true,
     ...options,
   });
   vr.render = function() {
