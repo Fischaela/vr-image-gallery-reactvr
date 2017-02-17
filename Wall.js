@@ -12,7 +12,8 @@ class Wall extends React.Component {
   render() {
 
     let scale = this.props.scale,
-      src = {mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true},
+      srcWallMat = {mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true},
+      srcWindowMat = {mesh:asset('cube_window.obj'), mtl:asset('cube_window.mtl'), lit: true},
       translate = this.props.translate,
       wall = null;
 
@@ -24,7 +25,7 @@ class Wall extends React.Component {
             {scale: scale},
           ],
         }}
-        source={src} />;
+        source={srcWindowMat} />;
     } else {
       wall = <Mesh
         style={{
@@ -33,7 +34,7 @@ class Wall extends React.Component {
             {scale: scale},
           ],
         }}
-        source={src} />;
+        source={srcWallMat} />;
     }
 
     return (
