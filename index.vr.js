@@ -10,55 +10,9 @@ import {
   AmbientLight,
   PointLight,
 } from 'react-vr';
+import WallWithWindow from './WallWithWindow';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rotation: 130,
-      zoom: -70
-    };
-    this.lastUpdate = Date.now();
-    this.rotate = this.rotate.bind(this);
-    this.spaceSkymap = [
-      '../static_assets/space_right.png',
-      '../static_assets/space_left.png',
-      '../static_assets/space_up.png',
-      '../static_assets/space_down.png',
-      '../static_assets/space_back.png',
-      '../static_assets/space_front.png'
-    ];
-    this.styles = StyleSheet.create({
-      menu: {
-        flex: 1,
-        flexDirection: 'column',
-        width: 1,
-        alignItems: 'stretch',
-        transform: [{translate: [2, 2, -5]}],
-      },
-    });
-  }
-
-  componentDidMount() {
-    this.rotate();
-  }
-
-  componentWillUnmount() {
-    if (this.frameHandle) {
-      cancelAnimationFrame(this.frameHandle);
-      this.frameHandle = null;
-    }
-  }
-
-  rotate() {
-    const now = Date.now();
-    const delta = now - this.lastUpdate;
-    this.lastUpdate = now;
-    this.setState({
-        rotation: this.state.rotation + delta / 150
-    });
-    this.frameHandle = requestAnimationFrame(this.rotate);
-  }
 
   render() {
     return (
@@ -71,14 +25,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
             ],
           }}
           source={{mesh:asset('cube_sky.obj'), mtl:asset('cube_sky.mtl'), lit: true}} />
-        <Mesh
-          style={{
-            transform: [
-              {translate: [0, 0.2, -1]},
-              {scale: [1, 0.4, 0.001]},
-            ],
-          }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+        <WallWithWindow />
         <Mesh
           style={{
             transform: [
