@@ -7,15 +7,15 @@ import {
   asset,
 } from 'react-vr';
 
-class WallWithWindow extends React.Component {
+class Wall extends React.Component {
 
   render() {
     return (
       <Mesh
         style={{
           transform: [
-            {translate: [0, 0.2, -1]},
-            {scale: [1, 0.4, 0.001]},
+            {translate: this.props.translate},
+            {scale: this.props.scale},
           ],
         }}
         source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
@@ -23,4 +23,4 @@ class WallWithWindow extends React.Component {
   }
 }
 
-module.exports = WallWithWindow;
+module.exports = Wall;

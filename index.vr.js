@@ -10,7 +10,7 @@ import {
   AmbientLight,
   PointLight,
 } from 'react-vr';
-import WallWithWindow from './WallWithWindow';
+import Wall from './Wall';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
 
@@ -25,39 +25,21 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
             ],
           }}
           source={{mesh:asset('cube_sky.obj'), mtl:asset('cube_sky.mtl'), lit: true}} />
-        <WallWithWindow />
-        <Mesh
-          style={{
-            transform: [
-              {translate: [-1, 0.2, 0]},
-              {scale: [0.001, 0.4, 1]},
-            ],
-          }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
-        <Mesh
-          style={{
-            transform: [
-              {translate: [1, 0.2, 0]},
-              {scale: [0.001, 0.4, 1]},
-            ],
-          }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
-        <Mesh
-          style={{
-            transform: [
-              {translate: [0, 0.2, 1]},
-              {scale: [1, 0.4, 0.001]},
-            ],
-          }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
-        <Mesh
-          style={{
-            transform: [
-              {translate: [0, -0.2, 0]},
-              {scale: [1, 0.001, 1]},
-            ],
-          }}
-          source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+        <Wall
+          translate={[0, 0.2, -1]}
+          scale={[1, 0.4, 0.001]} />
+        <Wall
+          translate={[-1, 0.2, 0]}
+          scale={[0.001, 0.4, 1]} />
+        <Wall
+          translate={[0, 0.2, -1]}
+          scale={[1, 0.4, 0.001]} />
+        <Wall
+          translate={[0, 0.2, 1]}
+          scale={[1, 0.4, 0.001]} />
+        <Wall
+          translate={[0, -0.2, 0]}
+          scale={[1, 0.001, 1]} />
         <PointLight intensity={0.25}
           style={{
             color:'#ffffff',
