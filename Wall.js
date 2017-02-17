@@ -10,15 +10,34 @@ import {
 class Wall extends React.Component {
 
   render() {
-    return (
-      <Mesh
+
+    let scale = this.props.scale,
+      src = {mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true},
+      translate = this.props.translate,
+      wall = null;
+
+    if (this.props.hasWindow && this.props.hasWindow === true) {
+      wall = <Mesh
         style={{
           transform: [
-            {translate: this.props.translate},
-            {scale: this.props.scale},
+            {translate: translate},
+            {scale: scale},
           ],
         }}
-        source={{mesh:asset('cube_wall.obj'), mtl:asset('cube_wall.mtl'), lit: true}} />
+        source={src} />;
+    } else {
+      wall = <Mesh
+        style={{
+          transform: [
+            {translate: translate},
+            {scale: scale},
+          ],
+        }}
+        source={src} />;
+    }
+
+    return (
+      wall
     );
   }
 }

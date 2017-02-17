@@ -30,13 +30,16 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
           scale={[1, 0.4, 0.001]} />
         <Wall
           translate={[-1, 0.2, 0]}
-          scale={[0.001, 0.4, 1]} />
+          scale={[0.001, 0.4, 1]}
+          hasWindow={true} />
         <Wall
           translate={[0, 0.2, -1]}
-          scale={[1, 0.4, 0.001]} />
+          scale={[1, 0.4, 0.001]}
+          hasWindow={true} />
         <Wall
           translate={[0, 0.2, 1]}
-          scale={[1, 0.4, 0.001]} />
+          scale={[1, 0.4, 0.001]}
+          hasWindow={true} />
         <Wall
           translate={[0, -0.2, 0]}
           scale={[1, 0.001, 1]} />
