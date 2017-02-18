@@ -12,6 +12,7 @@ import {
 } from 'react-vr';
 import Wall from './Wall';
 import Image from './Image';
+import Button from './Button';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
 
@@ -64,6 +65,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
           texture={'IGtoGD_4.jpg'}
           index={4}
           length={5} />
+        <Button />
         <PointLight intensity={0.25}
           style={{
             color:'#ffffff',
