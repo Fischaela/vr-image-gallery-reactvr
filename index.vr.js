@@ -11,6 +11,7 @@ import {
   PointLight,
 } from 'react-vr';
 import Wall from './Wall';
+import Image from './Image';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
 
@@ -43,6 +44,26 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
         <Wall
           translate={[0, -0.2, 0]}
           scale={[1, 0.001, 1]} />
+        <Image
+          texture={'IGtoGD_0.jpg'}
+          index={0}
+          length={5} />
+        <Image
+          texture={'IGtoGD_1.jpg'}
+          index={1}
+          length={5} />
+        <Image
+          texture={'IGtoGD_2.jpg'}
+          index={2}
+          length={5} />
+        <Image
+          texture={'IGtoGD_3.jpg'}
+          index={3}
+          length={5} />
+        <Image
+          texture={'IGtoGD_4.jpg'}
+          index={4}
+          length={5} />
         <PointLight intensity={0.25}
           style={{
             color:'#ffffff',
