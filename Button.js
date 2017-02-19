@@ -19,7 +19,7 @@ class Button extends React.Component {
             {scale: [0.075, 0.3, 0.001]},
           ]
         }}
-        source={{mesh:asset('cube_idle.obj'), mtl:asset('cube_idle.mtl'), lit: true}}/>
+        source={{mesh:asset('cube_idle.obj'), mtl:asset('cube_idle.mtl'), lit: true}} />
     );
   }
 }
