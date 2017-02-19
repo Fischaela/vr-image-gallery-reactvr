@@ -13,7 +13,15 @@ class UI extends React.Component {
   render() {
 
     return(
-      <View>
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        width: 0.3,
+        alignItems: 'stretch',
+        transform: [
+          {translate: [-0.144, -0.04, -0.3]},
+        ],
+      }}>
         <Button
           alignment={'left'} />
         <Button

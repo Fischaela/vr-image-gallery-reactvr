@@ -6,6 +6,7 @@ import {
   Mesh,
   asset,
   VrButton,
+  Text,
 } from 'react-vr';
 
 class Button extends React.Component {
@@ -28,10 +29,10 @@ class Button extends React.Component {
 
   render() {
     let alignment = this.props.alignment,
-      translateX = -0.2;
+      translateX = -0.1;
 
     if (alignment === 'right') {
-      translateX = 0.2;
+      translateX = 0.1;
     }
 
     return(
@@ -39,15 +40,21 @@ class Button extends React.Component {
         onClick={()=>this._onButtonClicked()}
         onEnter={()=>this._onButtonEntered()}
         onExit={()=>this._onButtonExit()}
-        onLongClick={()=>this._onButtonLongClick()} >
-        <Mesh
+        onLongClick={()=>this._onButtonLongClick()}
         style={{
-          transform: [
-            {translate: [translateX, 0, -0.4]},
-            {scale: [0.075, 0.3, 0.001]},
-          ]
-        }}
-        source={{mesh:asset('cube_idle.obj'), mtl:asset('cube_idle.mtl'), lit: true}} />
+          backgroundColor: 'red',
+          width: 0.141,
+          margin: 0.003,
+        }} >
+        <Text style={{
+            fontSize: 0.015,
+            paddingTop: 0.001,
+            paddingBottom: 0.0025,
+            paddingLeft: 0.005,
+            paddingRight: 0.005,
+            textAlign: 'center',
+            textAlignVertical: 'center',
+          }} >Scroll</Text>
       </VrButton>
     );
   }
