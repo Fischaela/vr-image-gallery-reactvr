@@ -10,12 +10,18 @@ import {
 class Button extends React.Component {
 
   render() {
+    let alignment = this.props.alignment,
+      translateX = -0.2;
+
+    if (alignment === 'right') {
+      translateX = 0.2;
+    }
 
     return(
       <Mesh
         style={{
           transform: [
-            {translate: [-0.2, 0, -0.4]},
+            {translate: [translateX, 0, -0.4]},
             {scale: [0.075, 0.3, 0.001]},
           ]
         }}

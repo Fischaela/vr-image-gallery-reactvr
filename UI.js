@@ -13,7 +13,12 @@ class UI extends React.Component {
   render() {
 
     return(
-      <Button />
+      <View>
+        <Button
+          alignment={'left'} />
+        <Button
+          alignment={'right'} />
+      </View>
     );
   }
 }
