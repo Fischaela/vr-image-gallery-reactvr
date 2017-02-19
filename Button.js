@@ -5,9 +5,14 @@ import {
   View,
   Mesh,
   asset,
+  VrButton,
 } from 'react-vr';
 
 class Button extends React.Component {
+
+  _onViewClicked() {
+    console.log('VrButton was clicked.');
+  }
 
   render() {
     let alignment = this.props.alignment,
@@ -18,7 +23,9 @@ class Button extends React.Component {
     }
 
     return(
-      <Mesh
+      <VrButton
+        onClick={()=>this._onViewClicked()} >
+        <Mesh
         style={{
           transform: [
             {translate: [translateX, 0, -0.4]},
@@ -26,6 +33,7 @@ class Button extends React.Component {
           ]
         }}
         source={{mesh:asset('cube_idle.obj'), mtl:asset('cube_idle.mtl'), lit: true}} />
+      </VrButton>
     );
   }
 }
