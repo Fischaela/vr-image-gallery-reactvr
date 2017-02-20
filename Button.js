@@ -2,11 +2,11 @@
 
 import React from 'react';
 import {
-  View,
-  Mesh,
   asset,
-  VrButton,
+  Mesh,
   Text,
+  View,
+  VrButton,
 } from 'react-vr';
 
 class Button extends React.Component {

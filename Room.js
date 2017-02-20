@@ -2,9 +2,9 @@
 
 import React from 'react';
 import {
-  View,
-  Mesh,
   asset,
+  Mesh,
+  View,
 } from 'react-vr';
 import Wall from './Wall';
 
