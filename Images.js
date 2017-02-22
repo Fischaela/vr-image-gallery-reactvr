@@ -10,10 +10,45 @@ import Image from './Image';
 
 class Images extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      translation: 0,
+    };
+    this.lastUpdate = Date.now();
+    this.translate  = this.translate.bind(this);
+  }
+
+  translate() {
+    const now = Date.now();
+    const delta = now - this.lastUpdate;
+
+    this.lastUpdate = now;
+    this.setState({translation: this.state.translation + delta / 200000});
+    this.frameHandle = requestAnimationFrame(this.translate);
+  }
+
+  componentDidMount() {
+    this.translate();
+  }
+
+  componentWillUnmount() {
+    if (this.frameHandle) {
+      cancelAnimationFrame(this.frameHandle);
+      this.frameHandle = null;
+    }
+  }
+
   render() {
 
     return(
-      <View>
+      <View
+        style={{
+          transform: [
+            {translate: [this.state.translation, 0, 0]},
+          ],
+        }}>
         <Image
           texture={'IGtoGD_0.jpg'}
           index={0}
