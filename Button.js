@@ -54,7 +54,7 @@ class Button extends React.Component {
             paddingRight: 0.005,
             textAlign: 'center',
             textAlignVertical: 'center',
-          }} >Scroll</Text>
+          }} >Scroll {this.props.alignment}</Text>
       </VrButton>
     );
   }
