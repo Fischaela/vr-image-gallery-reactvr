@@ -24,9 +24,12 @@ class Images extends React.Component {
     const now = Date.now();
     const delta = now - this.lastUpdate;
 
-    this.lastUpdate = now;
-    this.setState({translation: this.state.translation + delta / 200000});
-    this.frameHandle = requestAnimationFrame(this.translate);
+    // TODO: make value 0.656 dynamic
+    if (this.state.translation < 0.656 && this.state.translation > -0.656) {
+      this.lastUpdate = now;
+      this.setState({translation: this.state.translation + delta / 200000});
+      this.frameHandle = requestAnimationFrame(this.translate);
+    }
   }
 
   componentDidMount() {
