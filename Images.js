@@ -33,7 +33,7 @@ class Images extends React.Component {
   }
 
   componentDidMount() {
-    this.translate();
+    // this.translate();
   }
 
   componentWillUnmount() {

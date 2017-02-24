@@ -8,11 +8,23 @@ import {
   View,
   VrButton,
 } from 'react-vr';
+import Model from './Model';
 
 class Button extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      scrolling: false,
+    }
+  }
+
   _onButtonClicked() {
     console.log('VrButton click.');
+    this.listener = Model.registerListener(
+      (event) => { this.setState({scrolling: true}); }
+    );
   }
 
   _onButtonEntered() {
