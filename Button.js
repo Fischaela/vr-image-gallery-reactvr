@@ -11,20 +11,29 @@ import {
 
 class Button extends React.Component {
 
+  static defaultProps = {
+    delay: 2000,
+  }
+
   constructor(props) {
     super();
 
     this.state = {
+      hasFocus: false,
+      lastTimeoutId: 0,
       scrolling: false,
     }
   }
 
   _onButtonClicked() {
-    this.props.onClick();
+    this._selected();
   }
 
   _onButtonEntered() {
-    console.log('VrButton enter.');
+    this.setState({hasFocus: true});
+    const id = setTimeout(() => this._selected(), this.props.delay);
+    this.state.lastTimeoutId = id;
+    this._startEnterAnimation();
   }
 
   _onButtonExit() {
@@ -33,6 +42,14 @@ class Button extends React.Component {
 
   _onButtonLongClick() {
     console.log('VrButton long click.');
+  }
+
+  _selected() {
+    this.props.onClick();
+  }
+
+  _startEnterAnimation() {
+
   }
 
   render() {
