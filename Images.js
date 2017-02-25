@@ -31,7 +31,11 @@ class Images extends React.Component {
         this.state.translation > -0.656 &&
         this.props.scrolling !== 'none') {
       this.lastUpdate = now;
-      this.setState({translation: this.state.translation + delta / 200000});
+      if (this.props.scrolling === 'left') {
+        this.setState({translation: this.state.translation - delta / 200000});
+      } else if (this.props.scrolling === 'right') {
+        this.setState({translation: this.state.translation + delta / 200000});
+      }
     }
 
     this.frameHandle = requestAnimationFrame(this.translate);
