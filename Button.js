@@ -27,6 +27,7 @@ class Button extends React.Component {
 
   _onButtonClicked() {
     this._selected();
+    console.log('Button click');
   }
 
   _onButtonEntered() {
@@ -34,21 +35,33 @@ class Button extends React.Component {
     const id = setTimeout(() => this._selected(), this.props.delay);
     this.state.lastTimeoutId = id;
     this._startEnterAnimation();
+    console.log('Button enter');
   }
 
   _onButtonExit() {
-    console.log('VrButton exit.');
-  }
-
-  _onButtonLongClick() {
-    console.log('VrButton long click.');
+    console.log('Button exit');
+    this._unselected();
+    this.setState({hasFocus: false});
+    clearTimeout(this.state.lastTimeoutId);
+    this.state.lastTimeoutId = this.id;
+    this._startExitAnimation();
   }
 
   _selected() {
     this.props.onClick();
+    console.log('Selected');
+  }
+
+  _unselected() {
+    this.props.onInteractionEnd();
+    console.log('Unselected');
   }
 
   _startEnterAnimation() {
+
+  }
+
+  _startExitAnimation() {
 
   }
 
@@ -65,7 +78,6 @@ class Button extends React.Component {
         onClick={()=>this._onButtonClicked()}
         onEnter={()=>this._onButtonEntered()}
         onExit={()=>this._onButtonExit()}
-        onLongClick={()=>this._onButtonLongClick()}
         style={{
           backgroundColor: 'red',
           width: 0.141,

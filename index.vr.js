@@ -32,6 +32,12 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
           }}
           onScrollRightBegin={() => {
             this.setState({ scrolling: 'right' });
+          }}
+          onScrollLeftEnd={() => {
+            this.setState({ scrolling: 'none' });
+          }}
+          onScrollRightEnd={() => {
+            this.setState({ scrolling: 'none' });
           }} />
       </View>
     );
