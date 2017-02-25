@@ -24,9 +24,6 @@ class Images extends React.Component {
     const now = Date.now();
     const delta = now - this.lastUpdate;
 
-    console.log(this.props.scrolling);
-
-    // TODO: make value 0.656 dynamic
     if (this.state.translation < 0.656 &&
         this.state.translation > -0.656 &&
         this.props.scrolling !== 'none') {

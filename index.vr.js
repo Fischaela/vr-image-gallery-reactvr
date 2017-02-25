@@ -28,7 +28,6 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
           scrolling={this.state.scrolling} />
         <UI
           onScrollLeftBegin={() => {
-            console.log('Scroll Left Begin');
             this.setState({ scrolling: 'left' });
           }}
           onScrollRightBegin={() => {

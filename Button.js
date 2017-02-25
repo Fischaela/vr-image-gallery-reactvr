@@ -20,7 +20,6 @@ class Button extends React.Component {
   }
 
   _onButtonClicked() {
-    console.log('VrButton click.');
     this.props.onClick();
   }
 
