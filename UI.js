@@ -26,12 +26,12 @@ class UI extends React.Component {
           alignment={'left'}
           onClick={() => {
             this.props.onScrollLeftBegin();
-          }}/>
+          }} />
         <Button
           alignment={'right'}
           onClick={() => {
             this.props.onScrollRightBegin();
-          }}/>
+          }} />
       </View>
     );
   }

@@ -10,7 +10,7 @@ import Image from './Image';
 
 class Images extends React.Component {
 
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -24,16 +24,21 @@ class Images extends React.Component {
     const now = Date.now();
     const delta = now - this.lastUpdate;
 
+    console.log(this.props.scrolling);
+
     // TODO: make value 0.656 dynamic
-    if (this.state.translation < 0.656 && this.state.translation > -0.656) {
+    if (this.state.translation < 0.656 &&
+        this.state.translation > -0.656 &&
+        this.props.scrolling !== 'none') {
       this.lastUpdate = now;
       this.setState({translation: this.state.translation + delta / 200000});
-      this.frameHandle = requestAnimationFrame(this.translate);
     }
+
+    this.frameHandle = requestAnimationFrame(this.translate);
   }
 
   componentDidMount() {
-    // this.translate();
+    this.translate();
   }
 
   componentWillUnmount() {
