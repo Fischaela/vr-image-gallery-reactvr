@@ -22,12 +22,21 @@ class Button extends React.Component {
       hasFocus: false,
       lastTimeoutId: 0,
       scrolling: false,
+      buttonClickOn: false,
+      buttonGazeOn: false,
     }
   }
 
   _onButtonClicked() {
-    this._selected();
-    console.log('Button click');
+    if (this.state.buttonClickOn === false) {
+      this.state.buttonClickOn = true;
+      this._selected();
+    } else if (this.state.buttonClickOn === true &&
+          this.state.buttonGazeOn === false) {
+      this.state.buttonClickOn = false;
+      this._unselected();
+    }
+    console.log('Button click. buttonClickOn = ', this.state.buttonClickOn);
   }
 
   _onButtonEntered() {
@@ -40,7 +49,11 @@ class Button extends React.Component {
 
   _onButtonExit() {
     console.log('Button exit');
-    this._unselected();
+    if(this.state.buttonClickOn === false) {
+      this.state.buttonClickOn = false;
+      this.state.buttonGazeOn = false;
+      this._unselected();
+    }
     this.setState({hasFocus: false});
     clearTimeout(this.state.lastTimeoutId);
     this.state.lastTimeoutId = this.id;
