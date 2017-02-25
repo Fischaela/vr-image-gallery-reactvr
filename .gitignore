@@ -4,3 +4,5 @@
 *.js.meta
 node_modules/
 build/
+.index.vr.js.swp
+.UI.js.swp

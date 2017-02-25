@@ -11,13 +11,29 @@ import UI from './UI';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      scrolling: 'none'
+    }
+  }
+
   render() {
     return (
       <View>
         <Lightning />
         <Room />
-        <Images />
-        <UI />
+        <Images
+          scrolling={this.state.scrolling} />
+        <UI
+          onScrollLeftBegin={() => {
+            console.log('Scroll Left Begin');
+            this.setState({ scrolling: 'left' });
+          }}
+          onScrollRightBegin={() => {
+            this.setState({ scrolling: 'right' });
+          }} />
       </View>
     );
   }

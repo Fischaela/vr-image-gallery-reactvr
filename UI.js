@@ -23,9 +23,15 @@ class UI extends React.Component {
         ],
       }}>
         <Button
-          alignment={'left'} />
+          alignment={'left'}
+          onClick={() => {
+            this.props.onScrollLeftBegin();
+          }}/>
         <Button
-          alignment={'right'} />
+          alignment={'right'}
+          onClick={() => {
+            this.props.onScrollRightBegin();
+          }}/>
       </View>
     );
   }
