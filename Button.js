@@ -36,7 +36,7 @@ class Button extends React.Component {
       this.state.buttonClickOn = false;
       this._unselected();
     }
-    console.log('Button click. buttonClickOn = ', this.state.buttonClickOn);
+    // console.log('Button click. buttonClickOn = ', this.state.buttonClickOn);
   }
 
   _onButtonEntered() {
@@ -44,11 +44,11 @@ class Button extends React.Component {
     const id = setTimeout(() => this._selected(), this.props.delay);
     this.state.lastTimeoutId = id;
     this._startEnterAnimation();
-    console.log('Button enter');
+    // console.log('Button enter');
   }
 
   _onButtonExit() {
-    console.log('Button exit');
+    // console.log('Button exit');
     if(this.state.buttonClickOn === false) {
       this.state.buttonClickOn = false;
       this.state.buttonGazeOn = false;
@@ -62,12 +62,12 @@ class Button extends React.Component {
 
   _selected() {
     this.props.onClick();
-    console.log('Selected');
+    // console.log('Selected');
   }
 
   _unselected() {
     this.props.onInteractionEnd();
-    console.log('Unselected');
+    // console.log('Unselected');
   }
 
   _startEnterAnimation() {
