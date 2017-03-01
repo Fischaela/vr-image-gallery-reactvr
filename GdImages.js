@@ -6,9 +6,9 @@ import {
   Mesh,
   View,
 } from 'react-vr';
-import Image from './Image';
+import GdImage from './GdImage';
 
-class Images extends React.Component {
+class GdImages extends React.Component {
 
   constructor(props) {
     super();
@@ -58,23 +58,23 @@ class Images extends React.Component {
             {translate: [this.state.translation, 0, 0]},
           ],
         }}>
-        <Image
+        <GdImage
           texture={'IGtoGD_0.jpg'}
           index={0}
           length={5} />
-        <Image
+        <GdImage
           texture={'IGtoGD_1.jpg'}
           index={1}
           length={5} />
-        <Image
+        <GdImage
           texture={'IGtoGD_2.jpg'}
           index={2}
           length={5} />
-        <Image
+        <GdImage
           texture={'IGtoGD_3.jpg'}
           index={3}
           length={5} />
-        <Image
+        <GdImage
           texture={'IGtoGD_4.jpg'}
           index={4}
           length={5} />
@@ -83,4 +83,4 @@ class Images extends React.Component {
   }
 }
 
-module.exports = Images;
+module.exports = GdImages;

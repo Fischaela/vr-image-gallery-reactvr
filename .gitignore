@@ -6,3 +6,5 @@ node_modules/
 build/
 .index.vr.js.swp
 .UI.js.swp
+.GdImage.js.swp
+.GdImages.js.swp

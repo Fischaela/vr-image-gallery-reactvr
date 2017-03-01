@@ -4,7 +4,7 @@ import {
   asset,
   View,
 } from 'react-vr';
-import Images from './Images';
+import GdImages from './GdImages';
 import Lightning from './Lightning';
 import Room from './Room';
 import UI from './UI';
@@ -24,7 +24,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
       <View>
         <Lightning />
         <Room />
-        <Images
+        <GdImages
           scrolling={this.state.scrolling} />
         <UI
           onScrollLeftBegin={() => {

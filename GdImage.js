@@ -3,11 +3,12 @@
 import React from 'react';
 import {
   asset,
+  Image,
   Mesh,
   View,
 } from 'react-vr';
 
-class Image extends React.Component {
+class GdImage extends React.Component {
 
   render() {
     let index = this.props.index,
@@ -25,16 +26,11 @@ class Image extends React.Component {
     xOffset = imageWidth * 2 * index + gutterWidth * index + imageWidth - imageGroupWidth / 2;
 
     return(
-      <Mesh
-        style={{
-          transform: [
-            {translate: [xOffset, 0.1, -0.5]},
-            {scale: [imageWidth, imageWidth, 0.001]},
-          ],
-        }}
-        source={{mesh:asset('cube_wall.obj'), texture:asset(texture), lit: true}}/>
+      <Image
+        style={{width: 1, height: 1}}
+        source={require('./static_assets/IGtoGD_0.jpg')} />
     );
   }
 }
 
-module.exports = Image;
+module.exports = GdImage;
