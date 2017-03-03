@@ -15,8 +15,8 @@ class GdImage extends React.Component {
       length = this.props.length,
       texture = this.props.texture,
       imageGroupWidth = 0,
-      imageWidth = 0.15,
-      gutterWidth = 0.03,
+      imageWidth = 3.2,
+      gutterWidth = 0.1,
       xOffset = 0;
 
     // Calculation of position.x of each image
@@ -27,8 +27,12 @@ class GdImage extends React.Component {
 
     return(
       <Image
-        style={{width: 1, height: 1}}
-        source={require('./static_assets/IGtoGD_0.jpg')} />
+        style={{
+          margin: 0.05,
+          width: imageWidth,
+          height: imageWidth,
+        }}
+        source={texture} />
     );
   }
 }

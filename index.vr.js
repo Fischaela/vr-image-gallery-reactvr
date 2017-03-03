@@ -26,6 +26,8 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
         <Lightning />
         <World />
         <Room />
+        <GdImages
+          scrolling={this.state.scrolling} />
         <UI
           onScrollLeftBegin={() => {
             this.setState({ scrolling: 'left' });

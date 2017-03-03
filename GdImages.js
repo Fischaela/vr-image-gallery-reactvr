@@ -54,28 +54,30 @@ class GdImages extends React.Component {
     return(
       <View
         style={{
+          alignItems: 'center',
+          flexDirection: 'row',
           transform: [
-            {translate: [this.state.translation, 0, 0]},
+            {translate: [this.state.translation, 2.2, -4.7]},
           ],
         }}>
         <GdImage
-          texture={'IGtoGD_0.jpg'}
+          texture={require('./static_assets/IGtoGD_0.jpg')}
           index={0}
           length={5} />
         <GdImage
-          texture={'IGtoGD_1.jpg'}
+          texture={require('./static_assets/IGtoGD_1.jpg')}
           index={1}
           length={5} />
         <GdImage
-          texture={'IGtoGD_2.jpg'}
+          texture={require('./static_assets/IGtoGD_2.jpg')}
           index={2}
           length={5} />
         <GdImage
-          texture={'IGtoGD_3.jpg'}
+          texture={require('./static_assets/IGtoGD_3.jpg')}
           index={3}
           length={5} />
         <GdImage
-          texture={'IGtoGD_4.jpg'}
+          texture={require('./static_assets/IGtoGD_4.jpg')}
           index={4}
           length={5} />
       </View>
