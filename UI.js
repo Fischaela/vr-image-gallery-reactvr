@@ -16,10 +16,10 @@ class UI extends React.Component {
       <View style={{
         flex: 1,
         flexDirection: 'row',
-        width: 0.3,
+        width: 2,
         alignItems: 'stretch',
         transform: [
-          {translate: [-0.144, -0.04, -0.3]},
+          {translate: [-1.2, 0, -2]},
         ],
       }}>
         <Button

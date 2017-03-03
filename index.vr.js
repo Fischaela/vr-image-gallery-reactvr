@@ -26,6 +26,19 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
         <Lightning />
         <World />
         <Room />
+        <UI
+          onScrollLeftBegin={() => {
+            this.setState({ scrolling: 'left' });
+          }}
+          onScrollRightBegin={() => {
+            this.setState({ scrolling: 'right' });
+          }}
+          onScrollLeftEnd={() => {
+            this.setState({ scrolling: 'none' });
+          }}
+          onScrollRightEnd={() => {
+            this.setState({ scrolling: 'none' });
+          }} />
       </View>
     );
   }

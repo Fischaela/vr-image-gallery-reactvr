@@ -79,12 +79,7 @@ class Button extends React.Component {
   }
 
   render() {
-    let alignment = this.props.alignment,
-      translateX = -0.1;
-
-    if (alignment === 'right') {
-      translateX = 0.1;
-    }
+    let alignment = this.props.alignment;
 
     return(
       <VrButton
@@ -93,15 +88,15 @@ class Button extends React.Component {
         onExit={()=>this._onButtonExit()}
         style={{
           backgroundColor: 'red',
-          width: 0.141,
-          margin: 0.003,
+          width: 1,
+          margin: 0.1,
         }} >
         <Text style={{
-            fontSize: 0.015,
-            paddingTop: 0.001,
-            paddingBottom: 0.0025,
-            paddingLeft: 0.005,
-            paddingRight: 0.005,
+            fontSize: 0.1,
+            paddingTop: 0.025,
+            paddingBottom: 0,
+            paddingLeft: 0.025,
+            paddingRight: 0.025,
             textAlign: 'center',
             textAlignVertical: 'center',
           }} >Scroll {this.props.alignment}</Text>
