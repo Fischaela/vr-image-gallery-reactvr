@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   asset,
-  Mesh,
   View,
 } from 'react-vr';
 import Wall from './Wall';
@@ -14,31 +13,19 @@ class Room extends React.Component {
 
     return(
       <View>
-        <Mesh
-          style={{
-            transform: [
-              {scale: [1, 1, 1]},
-            ],
-          }}
-          source={{mesh:asset('cube_sky.obj'), mtl:asset('cube_sky.mtl'), lit: true}} />
-        <Wall
-          translate={[0, 0.2, -1]}
-          scale={[1, 0.4, 0.001]} />
-        <Wall
-          translate={[-1, 0.2, 0]}
-          scale={[0.001, 0.4, 1]}
-          hasWindow={true} />
-        <Wall
-          translate={[1, 0.2, 0]}
-          scale={[0.001, 0.4, 1]}
-          hasWindow={true} />
-        <Wall
-          translate={[0, 0.2, 1]}
-          scale={[1, 0.4, 0.001]}
-          hasWindow={true} />
-        <Wall
-          translate={[0, -0.2, 0]}
-          scale={[1, 0.001, 1]} />
+        <Wall scale={[5, 3, 0.2]}
+          translate={[0, 0, -5]} />
+        <Wall hasWindow={true}
+          scale={[5, 3, 0.2]}
+          translate={[0, 0, 5]} />
+        <Wall scale={[5, 0.2, 10]}
+          translate={[0, -2.9, -5.2]} />
+        <Wall hasWindow={true}
+          scale={[0.2, 3, 10]}
+          translate={[-5.2, 0, -5.2]} />
+        <Wall hasWindow={true}
+          scale={[0.2, 3, 10]}
+          translate={[5.2, 0, -5.2]} />
       </View>
     );
   }
