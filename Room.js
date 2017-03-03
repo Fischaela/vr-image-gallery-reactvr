@@ -25,7 +25,7 @@ class Room extends React.Component {
           translate={[-5.02, 0, -5.02]} />
         <Wall hasWindow={true}
           scale={[0.02, 3, 10]}
-          translate={[5.02, 0, -5.2]} />
+          translate={[5.02, 0, -5.02]} />
         <Wall scale={[50, 3, 0.2]}
           translate={[-55, 0, -4.8]} />
         <Wall scale={[50, 3, 0.2]}
