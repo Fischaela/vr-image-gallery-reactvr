@@ -19,14 +19,15 @@ class GdImages extends React.Component {
     this.lastUpdate = Date.now();
     this.translate  = this.translate.bind(this);
     this.imageWidth = 3.2;
+    this.scrollBorder = 6.6;
   }
 
   translate() {
     const now = Date.now();
     const delta = now - this.lastUpdate;
 
-    if (this.state.translation < 8.2 &&
-        this.state.translation > -8.2 &&
+    if (this.state.translation < this.scrollBorder &&
+        this.state.translation > -this.scrollBorder &&
         this.props.scrolling !== 'none') {
       this.lastUpdate = now;
       if (this.props.scrolling === 'left') {
