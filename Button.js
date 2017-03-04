@@ -84,6 +84,7 @@ class Button extends React.Component {
           margin: 0.1,
         }} >
         <Text style={{
+            color: '#618785',
             fontSize: 0.1,
             textAlign: 'center',
           }} >Scroll {this.props.alignment}</Text>
