@@ -21,6 +21,7 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
   }
 
   render() {
+
     return (
       <View>
         <Lightning />

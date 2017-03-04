@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {
+  Animated,
   asset,
   Mesh,
   View,
@@ -14,6 +15,7 @@ class GdImages extends React.Component {
     super();
 
     this.state = {
+      scrollValue: new Animated.Value(0),
       translation: 0,
     };
     this.lastUpdate = Date.now();
@@ -31,9 +33,9 @@ class GdImages extends React.Component {
         this.props.scrolling !== 'none') {
       this.lastUpdate = now;
       if (this.props.scrolling === 'left') {
-        this.setState({translation: this.state.translation - delta / 2000});
+        this.scrollLeft();
       } else if (this.props.scrolling === 'right') {
-        this.setState({translation: this.state.translation + delta / 2000});
+        this.scrollRight();
       }
     }
 
@@ -51,7 +53,59 @@ class GdImages extends React.Component {
     }
   }
 
+  scrollLeft() {
+    Animated.timing(
+      this.state.scrollValue,
+      {
+        toValue: this.scrollBorder,
+        duration: 2000,
+      }
+    ).start();
+  }
+
+
+  scrollRight() {
+    Animated.timing(
+      this.state.scrollValue,
+      {
+        toValue: -this.scrollBorder,
+        duration: 2000,
+      }
+    ).start();
+  }
+
   render() {
+
+    let images = [],
+      imagesConfig = [
+        {
+          texture: require('./static_assets/IGtoGD_0.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_1.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_2.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_3.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_4.jpg'),
+        },
+      ],
+      numberOfImages = 5;
+
+    for (let i = 0; i < numberOfImages - 1; i += 1) {
+      images.push(
+         <GdImage
+            key={i}
+            texture={imagesConfig[i].texture}
+            index={i}
+            length={numberOfImages}
+            width={this.imageWidth} />
+      );
+    }
 
     return(
       <View
@@ -62,40 +116,16 @@ class GdImages extends React.Component {
             {translate: [-8.2, 2.2, -4.7]},
           ],
         }}>
-        <View
+        <Animated.View
           style={{
             alignItems: 'center',
             flexDirection: 'row',
             transform: [
-              {translate: [this.state.translation, 0, 0]}
+              {translateX: this.state.scrollValue},
             ],
           }}>
-          <GdImage
-            texture={require('./static_assets/IGtoGD_0.jpg')}
-            index={0}
-            length={5}
-            width={this.imageWidth} />
-          <GdImage
-            texture={require('./static_assets/IGtoGD_1.jpg')}
-            index={1}
-            length={5}
-            width={this.imageWidth} />
-          <GdImage
-            texture={require('./static_assets/IGtoGD_2.jpg')}
-            index={2}
-            length={5}
-            width={this.imageWidth} />
-          <GdImage
-            texture={require('./static_assets/IGtoGD_3.jpg')}
-            index={3}
-            length={5}
-            width={this.imageWidth} />
-          <GdImage
-            texture={require('./static_assets/IGtoGD_4.jpg')}
-            index={4}
-            length={5}
-            width={this.imageWidth} />
-        </View>
+          {images}
+        </Animated.View>
       </View>
     );
   }
