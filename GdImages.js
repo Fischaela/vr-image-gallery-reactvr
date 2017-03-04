@@ -16,40 +16,26 @@ class GdImages extends React.Component {
 
     this.state = {
       scrollValue: new Animated.Value(0),
+      scrolling: false,
       translation: 0,
     };
-    this.lastUpdate = Date.now();
-    this.translate  = this.translate.bind(this);
     this.imageWidth = 3.2;
     this.scrollBorder = 6.6;
   }
 
-  translate() {
-    const now = Date.now();
-    const delta = now - this.lastUpdate;
-
-    if (this.state.translation < this.scrollBorder &&
-        this.state.translation > -this.scrollBorder &&
-        this.props.scrolling !== 'none') {
-      this.lastUpdate = now;
-      if (this.props.scrolling === 'left') {
-        this.scrollLeft();
-      } else if (this.props.scrolling === 'right') {
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    // currently not scrolling, but should be scrolling
+    if (this.state.scrolling === false && nextProps.scrolling !== 'none') {
+      this.setState({scrolling: true});
+      if (nextProps.scrolling === 'right') {
         this.scrollRight();
+      } else if (nextProps.scrolling === 'left') {
+        this.scrollLeft();
       }
-    }
-
-    this.frameHandle = requestAnimationFrame(this.translate);
-  }
-
-  componentDidMount() {
-    this.translate();
-  }
-
-  componentWillUnmount() {
-    if (this.frameHandle) {
-      cancelAnimationFrame(this.frameHandle);
-      this.frameHandle = null;
+    } else {
+      this.setState({scrolling: false});
+      this.stopScrolling();
     }
   }
 
@@ -74,6 +60,10 @@ class GdImages extends React.Component {
     ).start();
   }
 
+  stopScrolling() {
+    // Animated.AnimatedValue.stopAnimation();
+  }
+
   render() {
 
     let images = [],
@@ -94,7 +84,17 @@ class GdImages extends React.Component {
           texture: require('./static_assets/IGtoGD_4.jpg'),
         },
       ],
-      numberOfImages = 5;
+      numberOfImages = 5,
+      view = <View
+        style={{
+          alignItems: 'center',
+          flexDirection: 'row',
+          transform: [
+            {translateX: 0},
+          ],
+        }}>
+        {images}
+      </View>;
 
     for (let i = 0; i < numberOfImages - 1; i += 1) {
       images.push(
@@ -107,6 +107,19 @@ class GdImages extends React.Component {
       );
     }
 
+    if (this.state.scrolling !== 'none') {
+      view = <Animated.View
+        style={{
+          alignItems: 'center',
+          flexDirection: 'row',
+          transform: [
+            {translateX: this.state.scrollValue},
+          ],
+        }}>
+        {images}
+      </Animated.View>
+    }
+
     return(
       <View
         style={{
@@ -116,16 +129,7 @@ class GdImages extends React.Component {
             {translate: [-8.2, 2.2, -4.7]},
           ],
         }}>
-        <Animated.View
-          style={{
-            alignItems: 'center',
-            flexDirection: 'row',
-            transform: [
-              {translateX: this.state.scrollValue},
-            ],
-          }}>
-          {images}
-        </Animated.View>
+        {view}
       </View>
     );
   }
