@@ -19,7 +19,7 @@ class UI extends React.Component {
         width: 2,
         alignItems: 'stretch',
         transform: [
-          {translate: [-1.2, 2.75, -2]},
+          {translate: [-1.2, 2.85, -2]},
         ],
       }}>
         <Button

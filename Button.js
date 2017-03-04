@@ -92,12 +92,7 @@ class Button extends React.Component {
         }} >
         <Text style={{
             fontSize: 0.1,
-            paddingTop: 0.025,
-            paddingBottom: 0,
-            paddingLeft: 0.025,
-            paddingRight: 0.025,
             textAlign: 'center',
-            textAlignVertical: 'center',
           }} >Scroll {this.props.alignment}</Text>
       </VrButton>
     );
