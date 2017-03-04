@@ -8,6 +8,7 @@ import GdImages from './GdImages';
 import Lightning from './Lightning';
 import Room from './Room';
 import UI from './UI';
+import World from './World';
 
 class GEILDANKE_REACTVR_GALLERY extends React.Component {
 
@@ -20,9 +21,11 @@ class GEILDANKE_REACTVR_GALLERY extends React.Component {
   }
 
   render() {
+
     return (
       <View>
         <Lightning />
+        <World />
         <Room />
         <GdImages
           scrolling={this.state.scrolling} />

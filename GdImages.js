@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {
+  Animated,
   asset,
   Mesh,
   View,
@@ -14,70 +15,121 @@ class GdImages extends React.Component {
     super();
 
     this.state = {
+      scrollValue: new Animated.Value(0),
+      scrolling: false,
       translation: 0,
     };
-    this.lastUpdate = Date.now();
-    this.translate  = this.translate.bind(this);
+    this.imageWidth = 3.2;
+    this.scrollBorder = 6.6;
   }
 
-  translate() {
-    const now = Date.now();
-    const delta = now - this.lastUpdate;
-
-    if (this.state.translation < 0.656 &&
-        this.state.translation > -0.656 &&
-        this.props.scrolling !== 'none') {
-      this.lastUpdate = now;
-      if (this.props.scrolling === 'left') {
-        this.setState({translation: this.state.translation - delta / 200000});
-      } else if (this.props.scrolling === 'right') {
-        this.setState({translation: this.state.translation + delta / 200000});
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    // currently not scrolling, but should be scrolling
+    if (this.state.scrolling === false && nextProps.scrolling !== 'none') {
+      this.setState({scrolling: true});
+      if (nextProps.scrolling === 'right') {
+        this.scrollRight();
+      } else if (nextProps.scrolling === 'left') {
+        this.scrollLeft();
       }
+    } else {
+      this.setState({scrolling: false});
+      this.stopScrolling();
     }
-
-    this.frameHandle = requestAnimationFrame(this.translate);
   }
 
-  componentDidMount() {
-    this.translate();
+  scrollLeft() {
+    Animated.timing(
+      this.state.scrollValue,
+      {
+        toValue: this.scrollBorder,
+        duration: 2000,
+      }
+    ).start();
   }
 
-  componentWillUnmount() {
-    if (this.frameHandle) {
-      cancelAnimationFrame(this.frameHandle);
-      this.frameHandle = null;
-    }
+
+  scrollRight() {
+    Animated.timing(
+      this.state.scrollValue,
+      {
+        toValue: -this.scrollBorder,
+        duration: 2000,
+      }
+    ).start();
+  }
+
+  stopScrolling() {
+    // Animated.AnimatedValue.stopAnimation();
   }
 
   render() {
 
+    let images = [],
+      imagesConfig = [
+        {
+          texture: require('./static_assets/IGtoGD_0.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_1.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_2.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_3.jpg'),
+        },
+        {
+          texture: require('./static_assets/IGtoGD_4.jpg'),
+        },
+      ],
+      numberOfImages = 5,
+      view = <View
+        style={{
+          alignItems: 'center',
+          flexDirection: 'row',
+          transform: [
+            {translateX: 0},
+          ],
+        }}>
+        {images}
+      </View>;
+
+    for (let i = 0; i < numberOfImages - 1; i += 1) {
+      images.push(
+         <GdImage
+            key={i}
+            texture={imagesConfig[i].texture}
+            index={i}
+            length={numberOfImages}
+            width={this.imageWidth} />
+      );
+    }
+
+    if (this.state.scrolling !== 'none') {
+      view = <Animated.View
+        style={{
+          alignItems: 'center',
+          flexDirection: 'row',
+          transform: [
+            {translateX: this.state.scrollValue},
+          ],
+        }}>
+        {images}
+      </Animated.View>
+    }
+
     return(
       <View
         style={{
+          alignItems: 'center',
+          flexDirection: 'row',
           transform: [
-            {translate: [this.state.translation, 0, 0]},
+            {translate: [-8.2, 2.2, -4.7]},
           ],
         }}>
-        <GdImage
-          texture={'IGtoGD_0.jpg'}
-          index={0}
-          length={5} />
-        <GdImage
-          texture={'IGtoGD_1.jpg'}
-          index={1}
-          length={5} />
-        <GdImage
-          texture={'IGtoGD_2.jpg'}
-          index={2}
-          length={5} />
-        <GdImage
-          texture={'IGtoGD_3.jpg'}
-          index={3}
-          length={5} />
-        <GdImage
-          texture={'IGtoGD_4.jpg'}
-          index={4}
-          length={5} />
+        {view}
       </View>
     );
   }

@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   asset,
-  Mesh,
   Text,
   View,
   VrButton,
@@ -19,6 +18,7 @@ class Button extends React.Component {
     super();
 
     this.state = {
+      buttonColor: 0x9CCECC80,
       hasFocus: false,
       lastTimeoutId: 0,
       scrolling: false,
@@ -41,9 +41,9 @@ class Button extends React.Component {
 
   _onButtonEntered() {
     this.setState({hasFocus: true});
+    this.setState({buttonColor: 0x9CCECCFF});
     const id = setTimeout(() => this._selected(), this.props.delay);
     this.state.lastTimeoutId = id;
-    this._startEnterAnimation();
     // console.log('Button enter');
   }
 
@@ -55,9 +55,9 @@ class Button extends React.Component {
       this._unselected();
     }
     this.setState({hasFocus: false});
+    this.setState({buttonColor: 0x9CCECC80});
     clearTimeout(this.state.lastTimeoutId);
     this.state.lastTimeoutId = this.id;
-    this._startExitAnimation();
   }
 
   _selected() {
@@ -70,21 +70,8 @@ class Button extends React.Component {
     // console.log('Unselected');
   }
 
-  _startEnterAnimation() {
-
-  }
-
-  _startExitAnimation() {
-
-  }
-
   render() {
-    let alignment = this.props.alignment,
-      translateX = -0.1;
-
-    if (alignment === 'right') {
-      translateX = 0.1;
-    }
+    let alignment = this.props.alignment;
 
     return(
       <VrButton
@@ -92,18 +79,13 @@ class Button extends React.Component {
         onEnter={()=>this._onButtonEntered()}
         onExit={()=>this._onButtonExit()}
         style={{
-          backgroundColor: 'red',
-          width: 0.141,
-          margin: 0.003,
+          backgroundColor: this.state.buttonColor,
+          width: 1,
+          margin: 0.1,
         }} >
         <Text style={{
-            fontSize: 0.015,
-            paddingTop: 0.001,
-            paddingBottom: 0.0025,
-            paddingLeft: 0.005,
-            paddingRight: 0.005,
+            fontSize: 0.1,
             textAlign: 'center',
-            textAlignVertical: 'center',
           }} >Scroll {this.props.alignment}</Text>
       </VrButton>
     );

@@ -8,3 +8,5 @@ build/
 .UI.js.swp
 .GdImage.js.swp
 .GdImages.js.swp
+.Room.js.swp
+.Wall.js.swp
