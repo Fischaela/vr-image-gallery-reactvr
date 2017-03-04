@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   asset,
-  Mesh,
   Text,
   View,
   VrButton,
@@ -87,7 +86,7 @@ class Button extends React.Component {
         onEnter={()=>this._onButtonEntered()}
         onExit={()=>this._onButtonExit()}
         style={{
-          backgroundColor: 'red',
+          backgroundColor: 0x9ccecc70,
           width: 1,
           margin: 0.1,
         }} >
