@@ -18,6 +18,7 @@ class Button extends React.Component {
     super();
 
     this.state = {
+      buttonColor: 0x9CCECC80,
       hasFocus: false,
       lastTimeoutId: 0,
       scrolling: false,
@@ -40,9 +41,9 @@ class Button extends React.Component {
 
   _onButtonEntered() {
     this.setState({hasFocus: true});
+    this.setState({buttonColor: 0x9CCECCFF});
     const id = setTimeout(() => this._selected(), this.props.delay);
     this.state.lastTimeoutId = id;
-    this._startEnterAnimation();
     // console.log('Button enter');
   }
 
@@ -54,9 +55,9 @@ class Button extends React.Component {
       this._unselected();
     }
     this.setState({hasFocus: false});
+    this.setState({buttonColor: 0x9CCECC80});
     clearTimeout(this.state.lastTimeoutId);
     this.state.lastTimeoutId = this.id;
-    this._startExitAnimation();
   }
 
   _selected() {
@@ -69,14 +70,6 @@ class Button extends React.Component {
     // console.log('Unselected');
   }
 
-  _startEnterAnimation() {
-
-  }
-
-  _startExitAnimation() {
-
-  }
-
   render() {
     let alignment = this.props.alignment;
 
@@ -86,7 +79,7 @@ class Button extends React.Component {
         onEnter={()=>this._onButtonEntered()}
         onExit={()=>this._onButtonExit()}
         style={{
-          backgroundColor: 0x9ccecc70,
+          backgroundColor: this.state.buttonColor,
           width: 1,
           margin: 0.1,
         }} >
