@@ -14,7 +14,7 @@ class GdImage extends React.Component {
     let index = this.props.index,
       length = this.props.length,
       texture = this.props.texture,
-      imageWidth = 3.2;
+      imageWidth = this.props.width;
 
     return(
       <View

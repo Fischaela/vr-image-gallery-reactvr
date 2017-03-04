@@ -18,6 +18,7 @@ class GdImages extends React.Component {
     };
     this.lastUpdate = Date.now();
     this.translate  = this.translate.bind(this);
+    this.imageWidth = 3.2;
   }
 
   translate() {
@@ -34,8 +35,6 @@ class GdImages extends React.Component {
         this.setState({translation: this.state.translation + delta / 2000});
       }
     }
-
-    console.log(this.state.translation);
 
     this.frameHandle = requestAnimationFrame(this.translate);
   }
@@ -73,23 +72,28 @@ class GdImages extends React.Component {
           <GdImage
             texture={require('./static_assets/IGtoGD_0.jpg')}
             index={0}
-            length={5} />
+            length={5}
+            width={this.imageWidth} />
           <GdImage
             texture={require('./static_assets/IGtoGD_1.jpg')}
             index={1}
-            length={5} />
+            length={5}
+            width={this.imageWidth} />
           <GdImage
             texture={require('./static_assets/IGtoGD_2.jpg')}
             index={2}
-            length={5} />
+            length={5}
+            width={this.imageWidth} />
           <GdImage
             texture={require('./static_assets/IGtoGD_3.jpg')}
             index={3}
-            length={5} />
+            length={5}
+            width={this.imageWidth} />
           <GdImage
             texture={require('./static_assets/IGtoGD_4.jpg')}
             index={4}
-            length={5} />
+            length={5}
+            width={this.imageWidth} />
         </View>
       </View>
     );
