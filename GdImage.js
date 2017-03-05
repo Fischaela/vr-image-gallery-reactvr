@@ -22,14 +22,16 @@ class GdImage extends React.Component {
           transform: [
             {translate: [0, 0, 0]},
           ]
-        }}>
+        }}
+      >
         <Image
           style={{
             margin: 0.05,
             width: imageWidth,
             height: imageWidth,
           }}
-          source={texture} />
+          source={texture}
+        />
       </View>
     );
   }

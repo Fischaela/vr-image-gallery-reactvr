@@ -82,12 +82,17 @@ class Button extends React.Component {
           backgroundColor: this.state.buttonColor,
           width: 1,
           margin: 0.1,
-        }} >
-        <Text style={{
+        }}
+      >
+        <Text
+          style={{
             color: '#618785',
             fontSize: 0.0875,
             textAlign: 'center',
-          }} >Scroll {this.props.alignment}</Text>
+          }}
+        >
+          Scroll {this.props.alignment}
+        </Text>
       </VrButton>
     );
   }

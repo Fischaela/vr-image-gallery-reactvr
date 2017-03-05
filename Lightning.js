@@ -13,11 +13,14 @@ class Lightning extends React.Component {
 
     return(
       <View>
-        <AmbientLight intensity={ 1.2 }/>
-        <PointLight intensity={0.25}
+        <AmbientLight intensity={ 1.2 } />
+        <PointLight
+          intensity={0.25}
           style={{
             color:'#ffffff',
-            transform:[{translate : [0, 4, 0.25]}]}} />
+            transform:[{translate : [0, 4, 0.25]}]
+          }}
+        />
       </View>
     );
   }

@@ -19,22 +19,24 @@ class Wall extends React.Component {
 
     if (this.props.hasWindow && this.props.hasWindow === true) {
       wall = <Mesh
-        style={{
-          transform: [
-            {translate: translate},
-            {scale: scale},
-          ],
-        }}
-        source={srcWindowMat} />;
+          style={{
+            transform: [
+              {translate: translate},
+              {scale: scale},
+            ],
+          }}
+          source={srcWindowMat}
+        />;
     } else {
       wall = <Mesh
-        style={{
-          transform: [
-            {translate: translate},
-            {scale: scale},
-          ],
-        }}
-        source={srcWallMat} />;
+          style={{
+            transform: [
+              {translate: translate},
+              {scale: scale},
+            ],
+          }}
+          source={srcWallMat}
+        />;
     }
 
     return (

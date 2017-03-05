@@ -15,14 +15,15 @@ class World extends React.Component {
     return(
       <View>
         <Pano source={asset('sky_1_by_nic4las-d931tya.png')} />
-      <Mesh
-        style={{
-          transform: [
-            {translate: [0, -2.8, 0]},
-            {scale: [100, 0.001, 100]},
-          ]
-        }}
-        source={{mesh:asset('cylinder_earth.obj'), mtl:asset('cylinder_earth.mtl'), lit: true}} />
+        <Mesh
+          style={{
+            transform: [
+              {translate: [0, -2.8, 0]},
+              {scale: [100, 0.001, 100]},
+            ]
+          }}
+          source={{mesh:asset('cylinder_earth.obj'), mtl:asset('cylinder_earth.mtl'), lit: true}}
+        />
       </View>
     );
   }

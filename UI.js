@@ -13,15 +13,17 @@ class UI extends React.Component {
   render() {
 
     return(
-      <View style={{
-        flex: 1,
-        flexDirection: 'row',
-        width: 2,
-        alignItems: 'stretch',
-        transform: [
-          {translate: [-1.2, 2.85, -2]},
-        ],
-      }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          width: 2,
+          alignItems: 'stretch',
+          transform: [
+            {translate: [-1.2, 2.85, -2]},
+          ],
+        }}
+      >
         <Button
           alignment={'left'}
           onClick={() => {
@@ -29,7 +31,8 @@ class UI extends React.Component {
           }}
           onInteractionEnd={() => {
             this.props.onScrollLeftEnd();
-          }}/>
+          }}
+        />
         <Button
           alignment={'right'}
           onClick={() => {
@@ -37,7 +40,8 @@ class UI extends React.Component {
           }}
           onInteractionEnd={() => {
             this.props.onScrollRightEnd();
-          }}/>
+          }}
+        />
       </View>
     );
   }

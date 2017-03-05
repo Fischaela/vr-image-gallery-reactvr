@@ -133,38 +133,41 @@ class GdImages extends React.Component {
         },
       ],
       view = <View
-        style={{
-          alignItems: 'center',
-          flexDirection: 'row',
-          transform: [
-            {translateX: 0},
-          ],
-        }}>
-        {images}
-      </View>;
+          style={{
+            alignItems: 'center',
+            flexDirection: 'row',
+            transform: [
+              {translateX: 0},
+            ],
+          }}
+        >
+          {images}
+        </View>;
 
     for (let i = 0; i < this.numberOfImages - 1; i += 1) {
       images.push(
-         <GdImage
-            key={i}
-            texture={imagesConfig[i].texture}
-            index={i}
-            length={this.numberOfImages}
-            width={this.imageWidth} />
+        <GdImage
+          key={i}
+          texture={imagesConfig[i].texture}
+          index={i}
+          length={this.numberOfImages}
+          width={this.imageWidth}
+        />
       );
     }
 
     if (this.state.scrolling !== 'none') {
       view = <Animated.View
-        style={{
-          alignItems: 'center',
-          flexDirection: 'row',
-          transform: [
-            {translateX: this.state.scrollValue},
-          ],
-        }}>
-        {images}
-      </Animated.View>
+          style={{
+            alignItems: 'center',
+            flexDirection: 'row',
+            transform: [
+              {translateX: this.state.scrollValue},
+            ],
+          }}
+        >
+          {images}
+        </Animated.View>
     }
 
     return(
@@ -175,7 +178,8 @@ class GdImages extends React.Component {
           transform: [
             {translate: [-this.offsetX, 2.2, -4.7]},
           ],
-        }}>
+        }}
+      >
         {view}
       </View>
     );
