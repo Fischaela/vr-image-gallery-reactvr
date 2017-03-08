@@ -159,7 +159,6 @@ class GdImages extends React.Component {
     if (this.state.scrolling !== 'none') {
       view = <Animated.View
           style={{
-            alignItems: 'center',
             flexDirection: 'row',
             transform: [
               {translateX: this.state.scrollValue},
@@ -173,8 +172,6 @@ class GdImages extends React.Component {
     return(
       <View
         style={{
-          alignItems: 'center',
-          flexDirection: 'row',
           transform: [
             {translate: [-this.offsetX, 2.2, -4.7]},
           ],
