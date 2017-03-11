@@ -75,61 +75,61 @@ class GdImages extends React.Component {
     let images = [],
       imagesConfig = [
         {
-          texture: require('./static_assets/gallery-image-00.jpg'),
+          texture: asset('gallery-image-00.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-01.jpg'),
+          texture: asset('gallery-image-01.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-02.jpg'),
+          texture: asset('gallery-image-02.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-03.jpg'),
+          texture: asset('gallery-image-03.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-04.jpg'),
+          texture: asset('gallery-image-04.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-05.jpg'),
+          texture: asset('gallery-image-05.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-06.jpg'),
+          texture: asset('gallery-image-06.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-07.jpg'),
+          texture: asset('gallery-image-07.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-08.jpg'),
+          texture: asset('gallery-image-08.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-09.jpg'),
+          texture: asset('gallery-image-09.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-10.jpg'),
+          texture: asset('gallery-image-10.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-11.jpg'),
+          texture: asset('gallery-image-11.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-12.jpg'),
+          texture: asset('gallery-image-12.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-13.jpg'),
+          texture: asset('gallery-image-13.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-14.jpg'),
+          texture: asset('gallery-image-14.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-15.jpg'),
+          texture: asset('gallery-image-15.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-16.jpg'),
+          texture: asset('gallery-image-16.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-17.jpg'),
+          texture: asset('gallery-image-17.jpg'),
         },
         {
-          texture: require('./static_assets/gallery-image-18.jpg'),
+          texture: asset('gallery-image-18.jpg'),
         },
       ],
       view = <View
